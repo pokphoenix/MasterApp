@@ -1,0 +1,62 @@
+<ion-view view-title="Stamp" cache-view="false">
+    <ion-content padding="true">
+
+
+        <div class="page-no-scroll" ng-show="!statusLogin">
+            <div class="center" >
+                <div class="col">
+                    <h3>กรุณาล๊อกอินก่อนค่ะ</h3>
+                    <img class="img-responsive" ng-src="img/btn_login.png" ng-click="Login()">
+                </div>
+            </div>
+        </div>
+
+
+
+        <div ng-show="statusLogin">
+
+            <div class="card stamp">
+                <div class="item">
+                    <div class="row no-padding">
+                        <div class="col col-20" ng-repeat="i in getNumber(StampCnt) track by $index" ><img class="img-responsive" ng-src="img/stamp.png"></div>
+                        <div class="col col-20" ng-repeat="i in getNumber(StampEmptyCnt) track by $index" ><img class="img-responsive" ng-src="img/stamp_empty.png"></div>
+                    </div>
+                    <p style="color: #666;text-align: center;margin: 1rem 0;">{{StampText}}</p>
+                    <div class="row no-padding">
+                        <div class="col col-50 col-offset-25"><img class="img-responsive" ng-src="img/btn_stamp.png" on-touch="scanBarcode()" style="margin-bottom: 0.6rem;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stamp_textbox">
+                <h4><b>สะสมแสตมป์รับส่วนลดหรือเลเซอร์ฟรี</b></h4>
+                <div class="col-20" style="height:0.1rem !important; background: #cccccc;margin-bottom: 0.5rem;">
+                </div>
+                <p>เมื่อใช้บริการ<strong> ครบทุก 5000 บาท</strong> รับสแตมป์สะสม 1 ดวงทันทีที่คลีนิก</p>
+
+                <div class="row" >
+                    <div class="col col-10 text-center" >
+                        <img src="img/icon_text_title.png" >
+                    </div>
+                    <div class="col col-90">
+                        <span class="title">สะสมครบ 5 ดวง</span>
+                        <p>แลกรับฟรี เลเซอร์กำจัดขนถาวร 1 ครั้ง บริเวณใต้วงแขนหรือหนวด</p>
+                    </div>
+                </div>
+
+                <div class="row" >
+                    <div class="col col-10 text-center" >
+                        <img src="img/icon_text_title.png" >
+                    </div>
+                    <div class="col col-90">
+                        <span class="title">สะสมครบ 5 ดวง</span>
+                        <p>แลกรับฟรี เลเซอร์กำจัดขนถาวร 1 ครั้ง บริเวณใต้วงแขนหรือหนวด</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </ion-content>
+</ion-view>

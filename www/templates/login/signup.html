@@ -1,0 +1,101 @@
+<ion-header-bar  class="bar-customize" align-title="center" >
+	<div class="buttons">
+		<button class="button ion-chevron-left button-clear" ng-click="back()"></button>
+	</div>
+	<h1 class="title">Sign Up</h1>
+</ion-header-bar>
+
+<ion-view cache-view="false" >
+
+	<ion-content class="has-header" scroll="false" >
+
+		<form name="form.signUpForm" novalidate="" ng-submit="signUp(form.signUpForm)">
+
+			<div class="list">
+
+				<label class="item item-input " ng-class="{ 'has-errors' : form.signUpForm.fullName.$invalid, 'no-errors' : form.signUpForm.fullName.$valid}">
+					<i class="icon ion-person placeholder-icon"></i>
+					<input type="text" name="fullName" placeholder="Full Name" ng-model="data.fullName" ng-minlength="5" ng-maxlength="100" required>
+				</label>
+				<div class="error-container" ng-show="form.signUpForm.fullName.$error && form.signUpForm.fullName.$dirty" ng-messages="form.signUpForm.fullName.$error">
+					<div ng-messages-include="templates/error-list.html"></div>
+				</div>
+
+				<label class="item item-input " ng-class="{ 'has-errors' : form.signUpForm.email.$invalid, 'no-errors' : form.signUpForm.email.$valid}">
+					<i class="icon ion-email placeholder-icon"></i>
+					<input type="email" name="email" placeholder="Email" ng-model="data.email" ng-minlength="5" ng-maxlength="50" required>
+				</label>
+				<div class="error-container" ng-show="form.signUpForm.email.$error && form.signUpForm.email.$dirty" ng-messages="form.signUpForm.email.$error">
+					<div ng-messages-include="templates/error-list.html"></div>
+				</div>
+				<div ng-if="hasPassword" >
+					<label class="item item-input" ng-class="{ 'has-errors' : form.signUpForm.password.$invalid , 'no-errors' : form.signUpForm.password.$valid}">
+						<i class="icon ion-locked placeholder-icon"></i>
+						<input type="{{inputType}}" name="password" placeholder="Password" ng-model="data.password" ng-minlength="5" ng-maxlength="32" required>
+						<label  class="item-button-showhide" ng-click="hideShowPassword('inputType');passwordCheckbox=!passwordCheckbox " >
+							<span ng-if="passwordCheckbox">Show</span>
+							<span ng-if="!passwordCheckbox">Hide</span>
+						</label>
+					</label>
+					<div class="error-container last-error-container" ng-show="form.signUpForm.password.$error && form.signUpForm.password.$dirty" ng-messages="form.signUpForm.password.$error">
+						<div ng-messages-include="templates/error-list.html"></div>
+					</div>
+
+					<label class="item item-input" ng-class="{ 'has-errors' : form.signUpForm.confirmPassword.$invalid || data.confirmPassword!=data.password , 'no-errors' : form.signUpForm.confirmPassword.$valid && data.confirmPassword==data.password }">
+						<i class="icon ion-locked placeholder-icon"></i>
+						<input type="{{inputTypeConFirm}}" name="confirmPassword" placeholder="Confirm Password" ng-model="data.confirmPassword" ng-minlength="5" ng-maxlength="32" required  compare-to="data.password">
+						<label class="item-button-showhide"  ng-click="hideShowPassword('inputTypeConFirm');confirmPasswordCheckbox=!confirmPasswordCheckbox " >
+							<span ng-if="confirmPasswordCheckbox">Show</span>
+							<span ng-if="!confirmPasswordCheckbox">Hide</span>
+						</label>
+					</label>
+					<div class="error-container last-error-container" ng-show="form.signUpForm.confirmPassword.$error && form.signUpForm.password.$dirty || data.confirmPassword!=data.password && form.signUpForm.password.$dirty" ng-messages="form.signUpForm.confirmPassword.$error">
+						<div ng-messages-include="templates/error-list.html"></div>
+					</div>
+
+				</div>
+
+
+
+
+				<!--<label class="item item-input" ng-class="{ 'has-errors' : form.signUpForm.birthDate.$invalid, 'no-errors' : form.signUpForm.birthDate.$valid}">-->
+				<!--<input type="date" name="birthDate"  placeholder="Birth Date" ng-model="data.birthDate" required>-->
+				<!--</label>-->
+				<!--<div class="error-container" ng-show="form.signUpForm.birthDate.$error && form.signUpForm.password.$dirty" ng-messages="form.signUpForm.birthDate.$error">-->
+				<!--<div ng-messages-include="templates/error-list.html"></div>-->
+				<!--</div>-->
+
+				<!--<div class=" item item-divider">-->
+				<!--Gender-->
+				<!--</div>-->
+				<!--<label class="item item-radio" ng-class="{ 'has-errors' : form.signUpForm.birthDate.$invalid, 'no-errors' : form.signUpForm.birthDate.$valid}">-->
+				<!--<ion-radio ng-model="data.gender" ng-value="'1'">Male</ion-radio>-->
+				<!--<ion-radio ng-model="data.gender" ng-value="'0'">Female</ion-radio>-->
+				<!--</label>-->
+				<!--<div class="error-container" ng-show="form.signUpForm.gender.$error" ng-messages="form.signUpForm.gender.$error">-->
+				<!--<div ng-messages-include="templates/error-list.html"></div>-->
+				<!--</div>-->
+
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<button class="button button-full button-positive" ng-disabled="form.signUpForm.$invalid" type="submit">
+						Sign Up
+					</button>
+
+
+
+				</div>
+			</div>
+
+		</form>
+
+
+	</ion-content>
+
+
+</ion-view>
+
+
+

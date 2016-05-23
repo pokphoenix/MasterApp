@@ -1,0 +1,62 @@
+.error-container {
+    margin: 0.3125rem 0;
+}
+
+.error-container:last-child {
+    margin: 0.3125rem 0 0;
+}
+
+.error {
+    padding: 0.625rem 1rem;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    color: #555;
+    vertical-align: middle;
+}
+
+.error i {
+    font-size: 1.5rem;
+    color: #B83E2C;
+    vertical-align: middle;
+}
+
+.last-error-container > .error {
+    padding: 0.625rem 1rem 0;
+}
+
+.has-errors {
+    border-bottom: 0.18rem solid #B83E2C;
+}
+
+.no-errors {
+    border-bottom: 0.18rem solid green;
+}
+
+
+
+/** Styling for the username field **/
+label.item.has-error {
+    border-bottom: 0.125rem solid red;
+}
+
+/** Styling for the password field when an error exists**/
+label.item.has-error-lr {
+    border-left: 0.125rem solid red;
+    border-right: 0.125rem solid red;
+}
+
+/** Styling for the password field when an error has been resolved**/
+label.item.valid-lr {
+    border-left: 0.125rem solid green;
+    border-right: 0.125rem solid green;
+}
+
+/** Styling for the error text and container **/
+.form-errors {
+    margin: 0.3125rem 0
+}
+.form-error {
+    padding: 0.125rem 0 0.125rem 1rem;
+    color: red;
+}

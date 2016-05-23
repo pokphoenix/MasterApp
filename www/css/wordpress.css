@@ -1,0 +1,44 @@
+.avia-image-container-inner, .avia_image, .av-image-caption-overlay {
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    max-width: 100%;
+}
+
+.avia_textblock strong {
+    color: #EF5131;
+}
+
+.av-special-heading-tag {
+    color: #20ab7f;
+}
+
+h3.av-special-heading-tag {
+    font-size: 1.5rem;
+}
+
+
+
+
+
+
+/*   this class make responsive youtube  */
+.avia-iframe-wrap {
+    position: relative;
+    margin-bottom: 20px;
+    /*padding-top: 56%;*/
+      padding-bottom: 56.25%;
+}
+.avia-iframe-wrap iframe {
+    position:absolute;top:0;left:0;width:100%; height:100%;
+}
+
+.aligncenter{
+    clear: both;
+    display: block;
+    margin: 10px auto;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+    height: auto;
+}

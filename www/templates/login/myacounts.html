@@ -1,0 +1,61 @@
+<ion-view view-title="My Account" cache-view="false">
+    <ion-content scroll="false">
+
+        <div class="page-no-scroll" ng-show="!IsLogin">
+            <div class="center" >
+                <div class="col">
+                    <h3>กรุณาล๊อกอินก่อนค่ะ</h3>
+                    <img class="img-responsive" ng-src="img/btn_login.png" ng-click="Login()">
+                </div>
+            </div>
+        </div>
+
+
+        <div ng-show="IsLogin">
+            <ion-list >
+                <div class="item item-divider">
+                    My Account
+                </div>
+                <div class="item">
+                    <div class="row no-padding" >
+                        <div class="col col-33 no-padding">Name</div>
+                        <div class="col col-67 no-padding txt-ellip">{{name}}</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="row no-padding" >
+                        <div class="col col-33 no-padding">Email</div>
+                        <div class="col col-67 no-padding txt-ellip">{{email}}</div>
+                    </div>
+                </div>
+
+
+                <div class="item item-divider">
+                    Edit Account
+                </div>
+                <ion-item class="item-icon-right" href="#/app/editprofile" >
+                    Edit Profile
+                    <i class="icon ion-chevron-right"></i>
+                </ion-item>
+                <div class="item item-divider">
+                    Password
+                </div>
+                <ion-item class="item-icon-right"  href="#/app/changepass" >
+                    Change Password
+                    <i class="icon ion-chevron-right"></i>
+                </ion-item>
+            </ion-list>
+            <div class="row">
+                <div class="col">
+                    <button class="button button-block button-assertive" ng-click="Logout()" style="background: #F56462;">
+                        Log out
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </ion-content>
+</ion-view>

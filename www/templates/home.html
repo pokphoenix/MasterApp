@@ -1,0 +1,133 @@
+<ion-view view-title="Masterpiece Clinic">
+    <ion-content >
+        <style>
+
+
+            .slider, .blue, .yellow, .pink {
+                height: 13rem;
+            }
+
+            .blue {
+                background-color: blue;
+            }
+
+            .yellow {
+                background-color: yellow;
+            }
+
+            .pink {
+                background-color: pink;
+            }
+
+            .item{
+                text-align: center;
+                margin: 0;
+            }
+
+            a.btn-color {
+                color: #808080;
+                font-size: 0.5rem;
+                background-color: transparent !important;
+            }
+
+            a.btn-color>h1 {
+                color: #cccccc; }
+
+            .card{
+                padding: 0.5rem 0rem;
+                margin: 0.25rem ;
+                /*display: table;*/
+            }
+
+
+        </style>
+
+        <ion-slide-box on-slide-changed="slideHasChanged($index)">
+            <ion-slide>
+                <div class="box blue"><img class="img-responsive" src="img/Slide_demo.jpg"></div>
+            </ion-slide>
+            <ion-slide>
+                <div class="box yellow"><h1>YELLOW</h1></div>
+            </ion-slide>
+            <ion-slide>
+                <div class="box pink"><h1>PINK</h1></div>
+            </ion-slide>
+        </ion-slide-box>
+
+        <!--<style>-->
+        <!--.icon {-->
+        <!--margin: 0 auto;-->
+        <!--}-->
+        <!--</style>-->
+        <div class="row " >
+            <div class="col col-33" >
+                <div class="card" >
+                    <a class="item btn-color" href="#/tab/account" >
+                        <h1>
+                            <i class="icon ion-android-person"></i>
+                        </h1>
+                        Service
+                    </a>
+                </div>
+            </div>
+            <div class="col col-33">
+                <div class="card">
+                    <a class="item btn-color" href="#/tab/promotions">
+                        <h1>
+                            <i class="icon ion-ios-pricetag"></i>
+                        </h1>
+                        Promotion
+                    </a>
+                </div>
+            </div>
+            <div class="col col-33">
+                <div class="card">
+                    <a class="item btn-color" href="#/tab/stamps">
+                        <h1>
+                            <i class="icon ion-qr-scanner"></i>
+                        </h1>
+                        stamp
+                    </a>
+                </div>
+            </div>
+
+         </div>
+        <div class="row "  >
+
+
+
+            <div class="col col-33" >
+                <div class="card" >
+                    <a class="item btn-color" href="#/tab/news" >
+                        <h1>
+                            <i class="icon ion-android-calendar"></i>
+                        </h1>
+                        New & Event
+                    </a>
+                </div>
+            </div>
+            <div class="col col-33">
+                <div class="card">
+                    <a class="item btn-color" href="#">
+                        <h1>
+                            <i class="icon ion-ios-photos-outline"></i>
+                        </h1>
+                        Gallery
+                    </a>
+
+                </div>
+            </div>
+            <div class="col col-33">
+                <div class="card">
+                    <a class="item btn-color" href="#">
+                        <h1>
+                            <i class="icon ion-android-person-add"></i>
+                        </h1>
+                        Invite Friend
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

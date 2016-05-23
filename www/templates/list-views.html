@@ -1,0 +1,35 @@
+<ion-view view-title="{{category| capitalize}}" cache-view="false">
+    <!--<ion-nav-buttons side="left" >-->
+        <!--<button class="button button-icon button-clear ion-navicon" menu-toggle="left">-->
+        <!--</button>-->
+    <!--</ion-nav-buttons>-->
+
+    <ion-content padding="false" class="has-header" >
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+
+        <ul > <!-- Change to tag a because ion-item have padding -->
+            <a class="item no-padding item-borderless" ng-repeat="post in posts track by $index"
+               href="#/tab/views/{{post.id}}" style="margin-bottom: -5px;">
+                    <span class="listview-text-bg">
+                        <h2 ng-bind-html="post.title.rendered" class="listview-text"></h2>
+                    </span>
+                <!--<img  ng-src="{{ post.better_featured_image.media_details.sizes.shop_single.source_url }}"-->
+                <!--class="img-responsive"  />-->
+
+                <img ng-src="img/default-image.png" class="img-list-default img-responsive"
+                     actual-src="{{ post.better_featured_image.media_details.sizes.shop_single.source_url }}"/>
+
+
+                <p ng-if="post.excerpt.rendered" ng-bind-html="post.excerpt.rendered"></p>
+            </a>
+        </ul>
+
+        <ion-infinite-scroll
+                ng-if="moreDataExists()"
+                on-infinite="loadMore()"
+                distance="1%"
+                immediate-check="false">
+        </ion-infinite-scroll>
+
+    </ion-content>
+</ion-view>

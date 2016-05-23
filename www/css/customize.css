@@ -1,0 +1,128 @@
+
+
+/* loading */
+.semi-loading {
+    background:#111;width:5rem;height:5rem; position: fixed; top: 50%; left:50%; margin-top:-2.5rem; margin-left:-2.5rem;z-index: 999 !important; color:#EEE;font-size:2rem; display: table;text-align:center;
+    border-radius: 1rem;
+}
+.semi-loading > div {
+    display: table-cell; vertical-align: middle; margin: 0 auto;
+}
+
+.img-responsive {
+    width:100% !important;
+    height:auto !important;
+}
+
+.bar.bar-customize {
+    border-color: #A8CC00;
+    background-color: #A8CC00;
+    background-image: linear-gradient(0deg, #A8CC00, #A8CC00 50%, transparent 50%);
+    color: #fff; }
+.bar.bar-customize .title {
+    color: #fff; }
+.bar.bar-customize.bar-footer {
+    background-image: linear-gradient(180deg, #A8CC00, #A8CC00 50%, transparent 50%); }
+.bar-customize .button.button-clear {
+    border-color: transparent;
+    background: none;
+    box-shadow: none;
+    color: #FFF;
+    font-size: 1rem;
+}
+
+
+.tabs-customized > .tabs,
+.tabs.tabs-customized {
+    border-color: #EEE;
+    background-color: #fff;
+    background-image: linear-gradient(0deg, #EEE, #EEE 50%, transparent 50%);
+    color: #666; }
+.tabs-customized > .tabs .tab-item .badge,
+.tabs.tabs-customized .tab-item .badge {
+    background-color: #fff;
+    color: #666; }
+
+.tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
+    color: #A8CC00;
+}
+
+
+
+
+
+
+.no-padding {
+    padding: 0px !important;
+}
+
+
+
+.listview-text-bg {
+    position:absolute;bottom:5px; background: rgba(0, 0, 0, .8); color: #FFF; width: 100%; height:auto; padding:0.625rem;overflow: hidden;
+}
+.listview-text{
+    position:relative;color: #FFF;white-space:normal !important;
+}
+
+
+
+
+.page-no-scroll {
+    display: table !important;
+    width: 100% !important;
+    height: 100% !important;
+    position: relative;
+    background: #FFFFFF;
+}
+.center {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding: 0 2rem;
+    overflow: visible;
+}
+
+.button-icon-top {
+    line-height: 0.5rem;
+}
+.button-icon-top .icon {
+    display: block;
+    font-size: 0.5rem;
+    margin-bottom: 3px !important;
+}
+
+.item-input-noborder {
+    border: none;
+}
+
+/*   btn show/hide password   */
+.item-button-showhide{
+    color: #aaaaaa; padding-right: 0.75rem;
+}
+
+
+
+.stamp{
+    border-radius: 1rem;
+}
+
+.stamp_textbox{
+    color: #666666;
+}
+.stamp_textbox strong{
+    color: #20AB7F;
+}
+.stamp_textbox h3{
+    color: #000;
+}
+.stamp_textbox .title{
+    color: #35B5D8;
+}
+.stamp_textbox img{
+    height: 1rem;
+}
+.stamp_textbox p{
+    margin: 0;
+    padding: 0;
+}

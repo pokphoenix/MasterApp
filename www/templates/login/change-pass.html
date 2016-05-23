@@ -1,0 +1,154 @@
+<ion-view cache-view="false" view-title="Change Password" >
+	<ion-content class="has-header" scroll="false" >
+		<form name="form.changePassForm" novalidate="" ng-submit="changePass(form.changePassForm)">
+
+			<div class="list">
+				<div class="item item-divider">
+					Current Password
+				</div>
+				<label class="item item-input " ng-class="{ 'has-errors' : form.changePassForm.oldPassword.$invalid, 'no-errors' : form.changePassForm.oldPassword.$valid}">
+					<i class="icon ion-locked placeholder-icon"></i>
+					<input type="{{currentInputType}}" name="oldPassword" placeholder="Current Password" ng-model="data.oldPassword" ng-minlength="5" ng-maxlength="20" required>
+					<label class="item-button-showhide"  ng-click="hideShowPassword('currentInputType');currentPasswordCheckbox=!currentPasswordCheckbox " >
+						<span ng-if="currentPasswordCheckbox">Show</span>
+						<span ng-if="!currentPasswordCheckbox">Hide</span>
+					</label>
+				</label>
+				<div class="error-container" ng-show="form.changePassForm.oldPassword.$error && form.changePassForm.oldPassword.$dirty" ng-messages="form.changePassForm.oldPassword.$error">
+					<div ng-messages-include="templates/error-list.html"></div>
+				</div>
+
+				<div class="item item-divider">
+					New Password
+				</div>
+				<label class="item item-input" ng-class="{ 'has-errors' : form.changePassForm.newPassword.$invalid || data.newPassword==data.oldPassword , 'no-errors' : form.changePassForm.newPassword.$valid && data.newPassword!=data.oldPassword  }">
+					<i class="icon ion-locked placeholder-icon"></i>
+					<input type="{{inputType}}" name="newPassword" placeholder="New Password" ng-model="data.newPassword" ng-minlength="5" ng-maxlength="20" required not-compare-to="data.oldPassword">
+					<label class="item-button-showhide"  ng-click="hideShowPassword('inputType');passwordCheckbox=!passwordCheckbox " >
+						<span ng-if="passwordCheckbox">Show</span>
+						<span ng-if="!passwordCheckbox">Hide</span>
+					</label>
+				</label>
+				<div class="error-container last-error-container" ng-show="form.changePassForm.newPassword.$error && form.changePassForm.newPassword.$dirty || data.newPasswordConfirm==data.oldPassword && form.changePassForm.oldPassword.$dirty " ng-messages="form.changePassForm.newPassword.$error">
+					<div ng-messages-include="templates/error-list.html"></div>
+				</div>
+
+				<label class="item item-input" ng-class="{ 'has-errors' : form.changePassForm.newPasswordConfirm.$invalid || data.newPasswordConfirm!=data.newPassword , 'no-errors' : form.changePassForm.newPasswordConfirm.$valid && data.newPasswordConfirm==data.newPassword }">
+					<i class="icon ion-locked placeholder-icon"></i>
+					<input type="{{inputTypeConFirm}}" name="newPasswordConfirm" placeholder="Confirm Password" ng-model="data.newPasswordConfirm" ng-minlength="5" ng-maxlength="20" required  compare-to="data.newPassword" >
+					<label class="item-button-showhide"  ng-click="hideShowPassword('inputTypeConFirm');confirmPasswordCheckbox=!confirmPasswordCheckbox " >
+						<span ng-if="confirmPasswordCheckbox">Show</span>
+						<span ng-if="!confirmPasswordCheckbox">Hide</span>
+					</label>
+				</label>
+				<div class="error-container last-error-container" ng-show="form.changePassForm.newPasswordConfirm.$error && form.changePassForm.newPassword.$dirty || data.newPasswordConfirm!=data.newPassword && form.changePassForm.newPassword.$dirty" ng-messages="form.changePassForm.newPasswordConfirm.$error">
+					<div ng-messages-include="templates/error-list.html"></div>
+				</div>
+
+			</div>
+
+
+
+
+		<div class="row">
+			<div class="col">
+				<button class="button button-full button-positive" ng-disabled="form.changePassForm.$invalid" type="submit">
+					Submit
+				</button>
+
+				<!--<form name="signinForm" novalidate="" ng-submit="signUp(signinForm)">-->
+
+					<!--<div class="list">-->
+
+						<!--<label class="item item-input"-->
+							   <!--ng-class="{ 'has-error' : signinForm.username.$invalid}">-->
+							<!--<span class="input-label">Username</span>-->
+							<!--<input type="text"-->
+								   <!--name="username"-->
+								   <!--ng-model="user.username"-->
+								   <!--ng-minlength="5"-->
+								   <!--ng-maxlength="10"-->
+								   <!--required>-->
+						<!--</label>-->
+
+						<!--<div class="form-errors" ng-messages="signinForm.username.$error" ng-messages-include="templates/error-list.html">-->
+							<!--<div class="form-error" ng-message="maxlength">This field is must be less than 10 characters</div>-->
+						<!--</div>-->
+
+
+						<!--<label class="item item-input"-->
+							   <!--ng-class="{ 'has-error-lr' : signinForm.password.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.password.$valid  && signinForm.$submitted}">-->
+							<!--<span class="input-label">Password</span>-->
+							<!--<input type="password"-->
+								   <!--name="password"-->
+								   <!--ng-model="user.password"-->
+								   <!--ng-minlength="5"-->
+								   <!--ng-maxlength="25"-->
+								   <!--required>-->
+						<!--</label>-->
+						<!--<div class="form-errors"-->
+							 <!--ng-show="signinForm.password.$error && signinForm.$submitted"-->
+							 <!--ng-messages="signinForm.password.$error"-->
+							 <!--ng-messages-include="templates/error-list.html">-->
+						<!--</div>-->
+
+
+					<!--</div>-->
+
+					<!--<button class="button button-full button-positive"  type="submit">-->
+						<!--Sign In-->
+					<!--</button>-->
+
+				<!--</form>-->
+
+
+				<!--<div class="list">-->
+					<!--<label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.username.$invalid && authorizationForm.$submitted, 'no-errors' : authorizationForm.username.$valid && authorizationForm.$submitted}" ng-messages-include="error-list.html">-->
+						<!--<span class="input-label">Username</span>-->
+						<!--<input type="text" name="username" ng-model="authorization.username" ng-minlength="5" ng-maxlength="20" required>-->
+					<!--</label>-->
+					<!--<div class="error-container" ng-show="authorizationForm.username.$error && authorizationForm.$submitted" ng-messages="authorizationForm.username.$error">-->
+						<!--<div ng-messages-include="error-list.html"></div>-->
+					<!--</div>-->
+
+					<!-- -->
+					<!--<label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.password.$invalid && authorizationForm.$submitted, 'no-errors' : authorizationForm.password.$valid  && authorizationForm.$submitted}">-->
+						<!--<span class="input-label">Password</span>-->
+						<!--<input type="password" name="password" ng-model="authorization.password" ng-minlength="5" ng-maxlength="20" required>-->
+					<!--</label>-->
+					<!--<div class="error-container last-error-container" ng-show="authorizationForm.password.$error && authorizationForm.$submitted" ng-messages="authorizationForm.password.$error">-->
+						<!--<div ng-messages-include="error-list.html"></div>-->
+					<!--</div>-->
+
+
+					<!--<label class="item item-input">-->
+						<!--<input type="password" placeholder="Confirm Password">-->
+					<!--</label>-->
+
+					<!--<label class="item item-input">-->
+						<!--<span class="input-label">Date</span>-->
+						<!--<input type="date">-->
+					<!--</label>-->
+
+					<!--<div class=" item item-divider">-->
+						<!--Gender-->
+					<!--</div>-->
+					<!--<label class="item item-radio">-->
+						<!--<ion-radio ng-model="gender" ng-value="'1'">Male</ion-radio>-->
+						<!--<ion-radio ng-model="gender" ng-value="'0'">Female</ion-radio>-->
+					<!--</label>-->
+
+
+					<!--<button class="button button-block button-calm" ng-click="signUp()">Submit</button>-->
+				<!--</div>-->
+
+			</div>
+		</div>
+		</form>
+	</ion-content>
+
+
+</ion-view>
+
+
+
