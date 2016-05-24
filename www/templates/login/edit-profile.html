@@ -8,7 +8,7 @@
 				<div class="item item-divider">
 					Full Name
 				</div>
-				<label class="item item-input " ng-class="{ 'has-errors' : form.signUpForm.fullName.$invalid, 'no-errors' : form.signUpForm.fullName.$valid}">
+				<label class="item item-input " ng-class="{ 'has-errors' : form.signUpForm.fullName.$invalid && form.signUpForm.fullName.$dirty, 'no-errors' : form.signUpForm.fullName.$valid}">
 					<i class="icon ion-person placeholder-icon"></i>
 					<input type="text" name="fullName" placeholder="Full Name" ng-model="data.fullName" ng-minlength="5" ng-maxlength="100" required >
 				</label>
@@ -18,17 +18,17 @@
 
 			</div>
 
-			<div class="row">
-				<div class="col">
-					<button class="button button-full button-positive" ng-disabled="form.signUpForm.$invalid" type="submit">
-						Submit
-					</button>
 
+			<div class="row">
+				<div class="col col-40 col-offset-30">
+
+					<button class="button-clear" ng-disabled="form.signUpForm.$invalid" type="submit"  >
+						<img class="img-responsive" ng-src="img/btn_submit.png" >
+					</button>
 
 
 				</div>
 			</div>
-
 		</form>
 
 

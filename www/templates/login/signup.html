@@ -13,7 +13,7 @@
 
 			<div class="list">
 
-				<label class="item item-input " ng-class="{ 'has-errors' : form.signUpForm.fullName.$invalid, 'no-errors' : form.signUpForm.fullName.$valid}">
+				<label class="item item-input " ng-class="{ 'has-errors' : form.signUpForm.fullName.$invalid && form.signUpForm.fullName.$dirty, 'no-errors' : form.signUpForm.fullName.$valid }">
 					<i class="icon ion-person placeholder-icon"></i>
 					<input type="text" name="fullName" placeholder="Full Name" ng-model="data.fullName" ng-minlength="5" ng-maxlength="100" required>
 				</label>
@@ -21,7 +21,7 @@
 					<div ng-messages-include="templates/error-list.html"></div>
 				</div>
 
-				<label class="item item-input " ng-class="{ 'has-errors' : form.signUpForm.email.$invalid, 'no-errors' : form.signUpForm.email.$valid}">
+				<label class="item item-input " ng-class="{ 'has-errors' : form.signUpForm.email.$invalid && form.signUpForm.email.$dirty, 'no-errors' : form.signUpForm.email.$valid}">
 					<i class="icon ion-email placeholder-icon"></i>
 					<input type="email" name="email" placeholder="Email" ng-model="data.email" ng-minlength="5" ng-maxlength="50" required>
 				</label>
@@ -29,7 +29,7 @@
 					<div ng-messages-include="templates/error-list.html"></div>
 				</div>
 				<div ng-if="hasPassword" >
-					<label class="item item-input" ng-class="{ 'has-errors' : form.signUpForm.password.$invalid , 'no-errors' : form.signUpForm.password.$valid}">
+					<label class="item item-input" ng-class="{ 'has-errors' : form.signUpForm.password.$invalid && form.signUpForm.password.$dirty , 'no-errors' : form.signUpForm.password.$valid}">
 						<i class="icon ion-locked placeholder-icon"></i>
 						<input type="{{inputType}}" name="password" placeholder="Password" ng-model="data.password" ng-minlength="5" ng-maxlength="32" required>
 						<label  class="item-button-showhide" ng-click="hideShowPassword('inputType');passwordCheckbox=!passwordCheckbox " >
@@ -41,7 +41,7 @@
 						<div ng-messages-include="templates/error-list.html"></div>
 					</div>
 
-					<label class="item item-input" ng-class="{ 'has-errors' : form.signUpForm.confirmPassword.$invalid || data.confirmPassword!=data.password , 'no-errors' : form.signUpForm.confirmPassword.$valid && data.confirmPassword==data.password }">
+					<label class="item item-input" ng-class="{ 'has-errors' : form.signUpForm.confirmPassword.$invalid && form.signUpForm.password.$dirty || data.confirmPassword!=data.password && form.signUpForm.password.$dirty, 'no-errors' : form.signUpForm.confirmPassword.$valid && data.confirmPassword==data.password }">
 						<i class="icon ion-locked placeholder-icon"></i>
 						<input type="{{inputTypeConFirm}}" name="confirmPassword" placeholder="Confirm Password" ng-model="data.confirmPassword" ng-minlength="5" ng-maxlength="32" required  compare-to="data.password">
 						<label class="item-button-showhide"  ng-click="hideShowPassword('inputTypeConFirm');confirmPasswordCheckbox=!confirmPasswordCheckbox " >
@@ -79,11 +79,11 @@
 			</div>
 
 			<div class="row">
-				<div class="col">
-					<button class="button button-full button-positive" ng-disabled="form.signUpForm.$invalid" type="submit">
-						Sign Up
-					</button>
+				<div class="col col-40 col-offset-30">
 
+					<button class="button-clear" ng-disabled="form.signInForm.$invalid" type="submit"  >
+						<img class="img-responsive" ng-src="img/btn_signup_form.png" >
+					</button>
 
 
 				</div>

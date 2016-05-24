@@ -1,0 +1,27 @@
+<ion-view view-title="{{titleView}}">
+  <ion-content padding="false" >
+  <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+	  <ion-list style="margin-top: 1rem;">
+		  <div ng-repeat="c in itemList">
+			  <ion-item class="item item-thumbnail-left item-icon-right item-text-wrap" ng-href="{{c.link}}">
+				  <img ng-src="img/default-thumb.png"  >
+				  &nbsp;
+				  <div class="item-text-center">
+					  <div style="padding-right:2rem">
+						  {{c.name}}
+					  </div>
+				  </div>
+				  <i class="icon ion-chevron-right" ></i>
+			  </ion-item>
+		  </div>
+	  </ion-list>
+
+
+	  <ion-infinite-scroll
+	ng-if="moreDataExists()"
+    on-infinite="loadMore()"
+    distance="1%">
+  </ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>

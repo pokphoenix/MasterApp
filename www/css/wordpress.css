@@ -9,6 +9,8 @@
     color: #EF5131;
 }
 
+
+
 .av-special-heading-tag {
     color: #20ab7f;
 }
@@ -39,6 +41,29 @@ h3.av-special-heading-tag {
     margin: 10px auto;
     padding: 10px 0;
     position: relative;
-    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.avia_textblock  img,.avia_textblock  a img {
+
+    border: 2px solid #F00;
+    clear: both;
+    display: block;
+    margin: 10px auto;
+    padding: 10px 0;
+    position: relative;
+    max-width: 100%;
+    height: auto;
+}
+
+.size-large {
+    border: 2px solid #0F0!important;
+    clear: both;
+    display: block;
+    margin: 10px auto;
+    padding: 10px 0;
+    position: relative;
+    max-width: 500px !important;
     height: auto;
 }

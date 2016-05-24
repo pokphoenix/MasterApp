@@ -48,11 +48,14 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'wpIonic.controllers',
             //  cordova.plugins.Keyboard.disableScroll(true);
             //
             //}
-            if (window.StatusBar) {
-                // org.apache.cordova.statusbar required
-                //StatusBar.styleDefault();
-                StatuBar.overlaysWebView(true);
-                StatuBar.backgroundColorByHexString('#209dc2')
+
+            if (ionic.Platform.isAndroid()) {
+
+                //$cordovaStatusbar.overlaysWebView(true);
+                //$cordovaStatusbar.backgroundColorByHexString("#FF0000");
+
+            } else if (ionic.Platform.isIOS()) {
+                //StatusBar.styleLightContent();
             }
 
 
@@ -133,20 +136,20 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'wpIonic.controllers',
             })
 
 
-            .state('app.editprofile', {
+            .state('tab.editprofile', {
                 url: "/editprofile",
                 views: {
-                    'menuContent': {
+                    'tab-home': {
                         templateUrl: "templates/login/edit-profile.html",
                         controller: 'EditProfileCtrl'
                     }
                 },
                 cache: false
             })
-            .state('app.changepass', {
+            .state('tab.changepass', {
                 url: "/changepass",
                 views: {
-                    'menuContent': {
+                    'tab-home': {
                         templateUrl: "templates/login/change-pass.html",
                         controller: 'ChangePassCtrl'
                     }
@@ -154,15 +157,16 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'wpIonic.controllers',
                 cache: false
             })
 
-            //.state('tab.promotions', {
-            //  url: '/promotions',
-            //  views: {
-            //    'tab-home': {
-            //      templateUrl: 'templates/home.html',
-            //      controller: 'HomeCtrl'
-            //    }
-            //  }
-            //})
+            .state('tab.reviews', {
+                url: '/reviews',
+                params: {category: 'review'},
+                views: {
+                    'tab-home': {
+                        templateUrl: 'templates/list-views.html',
+                        controller: 'ListViewCtrl'
+                    }
+                }
+            })
             .state('tab.promotions', {
                 url: '/promotions',
                 params: {category: 'promotion'},
@@ -235,6 +239,117 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'wpIonic.controllers',
                     'tab-chats': {
                         templateUrl: 'templates/chat-detail.html',
                         controller: 'ChatDetailCtrl'
+                    }
+                }
+            })
+
+            .state('tab.about', {
+                url: '/about',
+                params: {postId: 1195,pageStatus:1},
+                views: {
+                    'tab-about': {
+                        templateUrl: 'templates/about.html',
+                        controller: 'ViewsCtrl'
+                    }
+                }
+            })
+
+            .state('tab.packages', {
+                url: "/packages",
+                views: {
+                    'tab-home': {
+                        templateUrl: "templates/list-item.html",
+                        controller: 'PackageCtrl'
+                    }
+                }
+            })
+
+
+            .state('tab.surgerys', {
+                url: "/surgerys",
+                views: {
+                    'tab-home': {
+                        templateUrl: "templates/list-item.html",
+                        controller: 'SurgerysCtrl'
+                    }
+                }
+            })
+            .state('tab.surbodys', {
+                url: "/sur-bodys",
+                views: {
+                    'tab-home': {
+                        templateUrl: "templates/list-item.html",
+                        controller: 'SurBodyCtrl'
+                    }
+                }
+            })
+            .state('tab.sureyes', {
+                url: "/sur-eyes",
+                views: {
+                    'tab-home': {
+                        templateUrl: "templates/list-item.html",
+                        controller: 'SurEyeCtrl'
+                    }
+                }
+            })
+            .state('tab.surfaces', {
+                url: "/sur-faces",
+                views: {
+                    'tab-home': {
+                        templateUrl: "templates/list-item.html",
+                        controller: 'SurFaceCtrl'
+                    }
+                }
+            })
+
+
+
+            .state('tab.cosmetics', {
+                url: "/cosmetics",
+                views: {
+                    'tab-home': {
+                        templateUrl: "templates/list-item.html",
+                        controller: 'CosmeticsCtrl'
+                    }
+                }
+            })
+
+            .state('tab.lasers', {
+                url: "/lasers",
+                views: {
+                    'tab-home': {
+                        templateUrl: "templates/list-item.html",
+                        controller: 'LasersCtrl'
+                    }
+                }
+            })
+
+            .state('tab.facialDesign', {
+                url: "/facialDesign",
+                views: {
+                    'tab-home': {
+                        templateUrl: "templates/list-item.html",
+                        controller: 'FacialDesignCtrl'
+                    }
+                }
+            })
+
+            .state('tab.antiAging', {
+                url: "/antiAging",
+                views: {
+                    'tab-home': {
+                        templateUrl: "templates/list-item.html",
+                        controller: 'AntiAgingCtrl'
+                    }
+                }
+            })
+
+            .state('tab.bodys', {
+                url: "/bodys",
+                views: {
+                    'tab-home': {
+                        templateUrl: "templates/list-item.html",
+                        controller: 'BodysCtrl'
                     }
                 }
             })
