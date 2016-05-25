@@ -3,7 +3,185 @@ angular.module('wpIonic.controllers', [])
     .controller('HomeCtrl', function ($scope) {
     })
 
+    .controller('TabCtrl', function ($scope,$ionicActionSheet) {
+        $scope.actionsheet = [
+            {
+                "name": "Facebook",
+                "link": "https://www.facebook.com/masterpiececlinicbeauty/",
+                "children": null,
+                "ex_link_mode": true,
+                "schemeIos": "fb://",
+                "schemeAndroid": "com.facebook.katana",
+                "urlIos": "fb://page?id=187216948084405",  //-- 187216948084405 (masterpiece) , 327976304054625 (memo print)
+                "urlAndroid": "fb://facewebmodal/f?href=https://www.facebook.com/masterpiececlinicbeauty"
+            },
+            {
+                "name": "Line", "link": "app.bookmarks", "children": null, "ex_link_mode": true,
+                "schemeIos": "line://ti/p/~masterpiececlinic",
+                "schemeAndroid": "jp.naver.line.android",
+                "urlIos": "line://ti/p/~masterpiececlinic",
+                "urlAndroid": "line://ti/p/~masterpiececlinic"
+            },
+            {
+                "name": "Instagram",
+                "link": "https://www.instagram.com/masterpiece_clinic/",
+                "children": null,
+                "ex_link_mode": true,
+                "schemeIos": "instagram://",
+                "schemeAndroid": "com.instagram.android",
+                "urlIos": "instagram://user?username=masterpiece_clinic",
+                "urlAndroid": "instagram://user?username=masterpiece_clinic"
+            },
 
+        ];
+        $scope.toggleGroup = function (index) {
+
+            var  group = $scope.actionsheet[index] ;
+
+            if (group.ex_link_mode && group.link !== null) {
+                var scheme;
+                if (ionic.Platform.isIOS()) {
+                    scheme = group.schemeIos ;
+                }
+                else if (ionic.Platform.isAndroid()) {
+                    scheme = group.schemeAndroid ;
+                }
+                appAvailability.check(
+                    scheme, // URI Scheme
+                    function () {  // Success callback
+                        //console.log('[AppCtrl] success check', 1);
+                        if (ionic.Platform.isIOS()) {
+                            window.open( group.urlIos , '_system', 'location=no' );
+                        }
+                        else if (ionic.Platform.isAndroid()) {
+                            //startApp.set({
+                            //    /* params */
+                            //    "action": "ACTION_VIEW",
+                            //    "uri": group.urlAndroid
+                            //}).start();
+                            var sApp = startApp.set({ /* params */
+                                "action": "ACTION_VIEW",
+                                "uri": group.urlAndroid
+                            });
+                            sApp.start(function() { /* success */
+                                //console.log("OK");
+                            }, function(error) { /* fail */
+                                //--- case have app but can not run that app
+                                window.open( group.link , '_system', 'location=no' );
+                            });
+                        }
+                    },
+                    function () {  // Error callback
+                        //console.log('[AppCtrl] error check', 2);
+                        if (ionic.Platform.isAndroid()) {
+                            //--- case haven't app go to url
+                            window.open( group.link , '_blank', 'location=no' );
+                        }else{
+                            popupService.alert('ไม่สามารถเชื่อมต่อ '+group.name+' ได้ค่ะ');
+                        }
+                    }
+                );
+                //$ionicHistory.nextViewOptions({
+                //    disableBack: true
+                //});
+                //$ionicSideMenuDelegate.toggleLeft();
+                //var Ref = window.open(group.link, '_blank', 'location=no,hardwareback=yes');   //---   _blank = Loads in the InAppBrowser
+
+            }
+        };
+
+        $scope.openActionSheet = function() {
+
+
+
+
+
+            $ionicActionSheet.show({
+                buttons: [
+                    { text: '<i class="icon ion-social-facebook positive"></i><b>Facebook</b>' },
+                    { text: '<i class="icon ion-ios-chatbubble balanced" ></i><b>Line</b>' },
+                    { text: '<i class="icon ion-social-instagram-outline royal"></i><b>Instagram</b>' },
+
+                ],
+
+                titleText: 'Masterpiece Social',
+                cancelText: 'Cancel',
+                cancel: function() {
+                    // add cancel code..
+                },
+                buttonClicked: function(index) {
+                    console.log('index : '+index);
+
+                    $scope.toggleGroup(index);
+
+                    return true;
+                }
+            });
+        }
+    })
+
+    .controller('BranchCtrl', function ($scope,$cordovaGeolocation,$compile,$rootScope) {
+
+        //$scope.itemList = [
+        //    {"name": "ทองหล่อ", "link": "#/tab/pages/4012/1"},
+        //    {"name": "สาขาสยามสแควร์", "link": "#/tab/pages/8667/1"}
+        //
+        //];
+        //$scope.titleView = "สาขา";
+
+
+        //$cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
+        //    var lat  = position.coords.latitude;
+        //    var long = position.coords.longitude;
+        //
+        //    var myLatlng = new google.maps.LatLng(lat, long);
+        //
+        //    var mapOptions = {
+        //        center: myLatlng,
+        //        zoom: 16,
+        //        mapTypeId: google.maps.MapTypeId.ROADMAP
+        //    };
+        //
+        //    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        //
+        //    $scope.map = map;
+        //
+        //
+        //}, function(err) {
+        //
+        //    console.log(err);
+        //});
+
+        //
+
+        //var posOptions = {
+        //    enableHighAccuracy: true,
+        //    timeout: 20000,
+        //    maximumAge: 0
+        //};
+        //$cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
+        //    var lat  = position.coords.latitude;
+        //    var long = position.coords.longitude;
+        //
+        //    var myLatlng = new google.maps.LatLng(lat, long);
+        //
+        //    var mapOptions = {
+        //        center: myLatlng,
+        //        zoom: 16,
+        //        mapTypeId: google.maps.MapTypeId.ROADMAP
+        //    };
+        //
+        //    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        //
+        //    $scope.map = map;
+        //    $rootScope.loading = false ;
+        //
+        //}, function(err) {
+        //    console.log(err);
+        //    $rootScope.loading = false ;
+        //});
+
+    })
 
     .controller('StampCtrl', function ($scope, $cordovaBarcodeScanner, $ionicPlatform, $localstorage, $state, $rootScope, $http, SemiFunction, popupService, DataLoader, Sha1, $ionicLoading) {
 
@@ -85,6 +263,11 @@ angular.module('wpIonic.controllers', [])
                         $scope.ScoreTotal = response.data.message.ScoreTotal;
                         $scope.ScoreUse = response.data.message.ScoreUse;
                         $scope.ScoreRemain = response.data.message.ScoreRemain;
+
+                        $scope.StampCnt = response.data.message.ScoreRemain ;
+                        $scope.StampEmptyCnt = 5-$scope.StampCnt;
+                        $scope.StampText = "แสตมป์สะสมทั้งหมด "+$scope.StampCnt+" / 5 ดวง";
+
                     } else {
                         popupService.alert(JSON.stringify(response.data.message));
                     }

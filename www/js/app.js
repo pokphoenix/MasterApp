@@ -93,7 +93,8 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'wpIonic.controllers',
             .state('tab', {
                 url: '/tab',
                 abstract: true,
-                templateUrl: 'templates/tabs.html'
+                templateUrl: 'templates/tabs.html',
+                controller: 'TabCtrl'
             })
 
             // Each tab has its own nav history stack:
@@ -189,7 +190,6 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'wpIonic.controllers',
                 }
             })
 
-
             .state('tab.views', {
                 url: "/views/:postId",
                 views: {
@@ -249,7 +249,7 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'wpIonic.controllers',
                 views: {
                     'tab-about': {
                         templateUrl: 'templates/about.html',
-                        controller: 'ViewsCtrl'
+                        //controller: 'ViewsCtrl'
                     }
                 }
             })
@@ -263,7 +263,15 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'wpIonic.controllers',
                     }
                 }
             })
-
+            .state('tab.services', {
+                url: "/services",
+                views: {
+                    'tab-home': {
+                        templateUrl: "templates/list-item.html",
+                        controller: 'ServiceCtrl'
+                    }
+                }
+            })
 
             .state('tab.surgerys', {
                 url: "/surgerys",
@@ -353,6 +361,19 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'wpIonic.controllers',
                     }
                 }
             })
+
+
+            .state('tab.branch', {
+                url: '/branch',
+                views: {
+                    'tab-branch': {
+                        templateUrl: 'templates/branch.html',
+                        controller: 'BranchCtrl'
+                    }
+                }
+            })
+
+
 
             .state('tab.account', {
                 url: '/account',

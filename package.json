@@ -24,7 +24,9 @@
     "com.lampa.startapp",
     "cordova-plugin-inappbrowser",
     "cordova-plugin-appavailability",
-    "phonegap-plugin-barcodescanner"
+    "phonegap-plugin-barcodescanner",
+    "cordova-plugin-x-socialsharing",
+    "cordova-plugin-geolocation"
   ],
   "cordovaPlatforms": [
     "android"

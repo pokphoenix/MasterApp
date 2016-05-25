@@ -7,34 +7,33 @@
         <button class="button button-clear button-icon  ion-share" ng-click="share()">
         </button>
     </ion-nav-buttons>
-    <ion-content padding="false" >
-        <div class="card post no-margin no-padding" >
-            <div class="item post-title no-padding" >
+    <ion-content padding="false" class="has-header">
+        <div class="add-header-padding">
+            <div class="card post no-margin no-padding" >
+                <div class="item post-title no-padding add-header-padding">
 
-                <img ng-src="{{ post.better_featured_image.media_details.sizes.shop_single.source_url }}"
-                     class="img-responsive"/>
-                <h2 ng-bind-html="post.title.rendered" style="padding: 20px;"></h2>
+                    <img ng-src="{{ post.better_featured_image.media_details.sizes.shop_single.source_url }}"
+                         class="img-responsive"/>
+                    <h2 ng-bind-html="post.title.rendered" style="padding: 20px;"></h2>
+
+                </div>
+
+                <div class="item item-body" id="content" ng-if="content" ng-bind-html="content | html_filters"></div>
 
 
-
-
+                <!--<div class="item tabs tabs-secondary tabs-icon-left">-->
+                <!--<a class="tab-item" href="#">-->
+                <!--<i class="icon ion-forward"></i>-->
+                <!--Share-->
+                <!--</a>-->
+                <!--<a class="tab-item" href="#" ng-click="bookmarkItem(post.id)">-->
+                <!--<i ng-class="{'icon ion-ios-star': bookmarked, 'icon ion-ios-star-outline': !bookmarked}"></i>-->
+                <!--Bookmark-->
+                <!--</a>-->
+                <!--</div>-->
 
             </div>
-
-            <div class="item item-body" id="content" ng-if="content" ng-bind-html="content | html_filters"></div>
-
-
-            <!--<div class="item tabs tabs-secondary tabs-icon-left">-->
-            <!--<a class="tab-item" href="#">-->
-            <!--<i class="icon ion-forward"></i>-->
-            <!--Share-->
-            <!--</a>-->
-            <!--<a class="tab-item" href="#" ng-click="bookmarkItem(post.id)">-->
-            <!--<i ng-class="{'icon ion-ios-star': bookmarked, 'icon ion-ios-star-outline': !bookmarked}"></i>-->
-            <!--Bookmark-->
-            <!--</a>-->
-            <!--</div>-->
-
         </div>
+
     </ion-content>
 </ion-view>

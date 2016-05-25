@@ -3,37 +3,46 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
     <title>MTPC APP</title>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
-    <link href="css/customize.css" rel="stylesheet">
-    <link href="css/validate.css" rel="stylesheet">
-    <link href="css/wordpress.css" rel="stylesheet">
 
+    <!--<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDvaNhlDP-zeoMO7Dz1wBRyTZKipHt-cIM"></script>-->
 
-    <!--<link rel="stylesheet" id="dashicons-css" href="http://www.masterpiececlinic.com/wp-includes/css/dashicons.min.css?ver=4.5.2" type="text/css" media="all">-->
-    <!--<link rel="stylesheet" id="admin-bar-css" href="http://www.masterpiececlinic.com/wp-includes/css/admin-bar.min.css?ver=4.5.2" type="text/css" media="all">-->
-    <!--<link rel="stylesheet" id="font-awesome-css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css?ver=4.5.2" type="text/css" media="all">-->
-    <!--<link rel="stylesheet" id="boxes-css" href="http://www.masterpiececlinic.com/wp-content/plugins/wordpress-seo/css/adminbar.min.css?ver=2.3.2" type="text/css" media="all">-->
-    <!--<link rel="stylesheet" id="avia-wpml-css" href="http://www.masterpiececlinic.com/wp-content/themes/enfold/config-wpml/wpml-mod.css?ver=4.5.2" type="text/css" media="all">-->
-    <!--<link rel="stylesheet" id="avia-grid-css" href="http://www.masterpiececlinic.com/wp-content/themes/enfold/css/grid.css?ver=2" type="text/css" media="all">-->
-    <!--<link rel="stylesheet" id="avia-base-css" href="http://www.masterpiececlinic.com/wp-content/themes/enfold/css/base.css?ver=2" type="text/css" media="all">-->
-    <!--<link rel="stylesheet" id="avia-layout-css" href="http://www.masterpiececlinic.com/wp-content/themes/enfold/css/layout.css?ver=2" type="text/css" media="all">-->
-    <!--<link rel="stylesheet" id="avia-scs-css" href="http://www.masterpiececlinic.com/wp-content/themes/enfold/css/shortcodes.css?ver=2" type="text/css" media="all">-->
-    <!--<link rel="stylesheet" id="avia-popup-css-css" href="http://www.masterpiececlinic.com/wp-content/themes/enfold/js/aviapopup/magnific-popup.css?ver=1" type="text/css" media="screen">-->
-    <!--<link rel="stylesheet" id="avia-media-css" href="http://www.masterpiececlinic.com/wp-content/themes/enfold/js/mediaelement/skin-1/mediaelementplayer.css?ver=1" type="text/css" media="screen">-->
-    <!--<link rel="stylesheet" id="avia-print-css" href="http://www.masterpiececlinic.com/wp-content/themes/enfold/css/print.css?ver=1" type="text/css" media="print">-->
-    <!--<link rel="stylesheet" id="avia-dynamic-css" href="http://www.masterpiececlinic.com/wp-content/uploads/dynamic_avia/enfold.css?ver=571e009d9be66" type="text/css" media="all">-->
-    <!--<link rel="stylesheet" id="avia-custom-css" href="http://www.masterpiececlinic.com/wp-content/themes/enfold/css/custom.css?ver=2" type="text/css" media="all">-->
-    <!--<link rel="stylesheet" id="thm_style-css" href="http://www.masterpiececlinic.com/wp-content/plugins/masterpiececlinic/thm_style.css?ver=4.5.2" type="text/css" media="all">-->
-    <!--<link rel="stylesheet" id="thm_font_quark2-css" href="http://www.masterpiececlinic.com/wp-content/plugins/masterpiececlinic/fonts/quark2/style.css?ver=4.5.2" type="text/css" media="all">-->
-    <!--&lt;!&ndash; This site uses the Google Analytics by Yoast plugin version 5.4.4 - https://yoast.com/wordpress/plugins/google-analytics/ &ndash;&gt;&lt;!&ndash; Normally you will find the Google Analytics tracking code here, but the webmaster disabled your user group. &ndash;&gt;&lt;!&ndash; / Google Analytics by Yoast &ndash;&gt;<script type="text/javascript" src="http://www.masterpiececlinic.com/wp-includes/js/jquery/jquery.js?ver=1.12.3"></script>-->
+    <!--<script src="https://maps-api-ssl.google.com/maps/api/js?libraries=places"></script>-->
+
+    <!--<link rel="stylesheet" id="dashicons-css" href="css/masterpiece/dashicons.min.css" type="text/css" media="all">-->
+    <!--<link rel="stylesheet" id="admin-bar-css" href="css/masterpiece/admin-bar.min.css" type="text/css" media="all">-->
+    <!--&lt;!&ndash;<link rel="stylesheet" id="font-awesome-css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css?ver=4.5.2" type="text/css" media="all">&ndash;&gt;-->
+    <!--<link rel="stylesheet" id="boxes-css" href="css/masterpiece/adminbar.min.css" type="text/css" media="all">-->
+    <!--<link rel="stylesheet" id="avia-wpml-css" href="css/masterpiece/wpml-mod.css" type="text/css" media="all">-->
+    <!--<link rel="stylesheet" id="avia-grid-css" href="css/masterpiece/grid.css" type="text/css" media="all">-->
+    <!--<link rel="stylesheet" id="avia-base-css" href="css/masterpiece/base.css" type="text/css" media="all">-->
+    <!--<link rel="stylesheet" id="avia-layout-css" href="css/masterpiece/layout.css" type="text/css" media="all">-->
+    <!--<link rel="stylesheet" id="avia-scs-css" href="css/masterpiece/shortcodes.css" type="text/css" media="all">-->
+    <!--<link rel="stylesheet" id="avia-popup-css-css" href="css/masterpiece/magnific-popup.css" type="text/css" media="screen">-->
+    <!--<link rel="stylesheet" id="avia-media-css" href="css/masterpiece/mediaelementplayer.css" type="text/css" media="screen">-->
+    <!--<link rel="stylesheet" id="avia-print-css" href="css/masterpiece/print.css" type="text/css" media="print">-->
+    <!--<link rel="stylesheet" id="avia-dynamic-css" href="css/masterpiece/enfold.css" type="text/css" media="all">-->
+    <!--<link rel="stylesheet" id="avia-custom-css" href="css/masterpiece/custom.css" type="text/css" media="all">-->
+    <!--<link rel="stylesheet" id="thm_style-css" href="css/masterpiece/thm_style.css" type="text/css" media="all">-->
+    <!--<link rel="stylesheet" id="thm_font_quark2-css" href="css/masterpiece/style.css" type="text/css" media="all">-->
+    <!-- This site uses the Google Analytics by Yoast plugin version 5.4.4 - https://yoast.com/wordpress/plugins/google-analytics/ --><!-- Normally you will find the Google Analytics tracking code here, but the webmaster disabled your user group. --><!-- / Google Analytics by Yoast -->
+    <!--<script type="text/javascript" src="http://www.masterpiececlinic.com/wp-includes/js/jquery/jquery.js?ver=1.12.3"></script>-->
     <!--<script type="text/javascript" src="http://www.masterpiececlinic.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.0"></script>-->
     <!--<script type="text/javascript" src="http://www.masterpiececlinic.com/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-form-move-tracker.js?ver=1.0"></script>-->
     <!--<script type="text/javascript" src="http://www.masterpiececlinic.com/wp-content/themes/enfold/js/avia-compat.js?ver=2"></script>-->
     <!--<script type="text/javascript" src="http://www.masterpiececlinic.com/wp-content/plugins/masterpiececlinic/thm_script.js?ver=4.5.2"></script>-->
+
+
+
+    <link href="css/customize.css" rel="stylesheet">
+    <link href="css/validate.css" rel="stylesheet">
+    <link href="css/wordpress.css" rel="stylesheet">
+
 
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
@@ -77,7 +86,11 @@
       have templates inline in this html file if you'd like).
     -->
     <ion-nav-view>
-
+      <div ng-show="loading" class="semi-loading" >
+        <div>
+          <ion-spinner icon="android"></ion-spinner>
+        </div>
+      </div>
     </ion-nav-view>
   </body>
 </html>

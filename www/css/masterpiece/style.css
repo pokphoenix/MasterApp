@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Quark';
+    src: url('Quark-Light.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Quark_Bold';
+    src: url('Quark-Bold.otf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}

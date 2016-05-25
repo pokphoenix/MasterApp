@@ -50,6 +50,10 @@ angular.module('wpIonic.controllers')
                 contentHtml = contentHtml.replace(Match, '<iframe src="'+source+'" frameborder="0" width="'+width+'" height="'+height+'" allowfullscreen></iframe>');
             }
 
+
+           //contentHtml = contentHtml.replace(new RegExp(/style="width: 1040px"/, 'g'), '');
+
+
             return contentHtml;
         }
         console.log('singlePostApi : ' + singlePostApi);
@@ -97,8 +101,6 @@ angular.module('wpIonic.controllers')
             }else{
                 var contentHtml = $scope.post.content.rendered ;
             }
-
-            console.log('final :',contentHtml);
 
             $scope.content = $sce.trustAsHtml(contentHtml);
         }
@@ -296,12 +298,22 @@ angular.module('wpIonic.controllers')
     })
 
 
+    .controller('ServiceCtrl', function ($scope) {
+        $scope.itemList = [
+            {"name": "Treament",  "link": "#/tab/pages/3519/1"},
+            {"name": "Products",  "link": "#/tab/pages/5831/1"},
+            {"name": "Hair",  "link": "http://www.thaihairmaster.com/"},
+            {"name": "Vectra 3D(จำลองภาพ 3มิติ)",  "link": "#/tab/pages/7418/1"},
+            {"name": "Oxy Chamber",  "link": "#/tab/pages/8826/1"}
+        ];
+        $scope.titleView = "Other Services";
+    })
 
     .controller('PackageCtrl', function ($scope) {
         $scope.itemList = [
             {"name": "Cosmetics", "link": "#/tab/cosmetics"},
             {"name": "Surgery", "link": "#/tab/surgerys"},
-            {"name": "Services", "link": "#/tab/services"}
+            {"name": "Other Services", "link": "#/tab/services"}
         ];
         $scope.titleView = "Packages";
     })

@@ -48,7 +48,13 @@
 }
 
 
+.platform-android .action-sheet-cancel {
+    display: block !important;
+}
 
+.add-header-padding{
+    padding-top: 0.25rem !important;
+}
 
 .no-margin {
     margin:0px !important;
