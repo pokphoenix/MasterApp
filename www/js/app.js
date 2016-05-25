@@ -48,7 +48,10 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'wpIonic.controllers',
             //  cordova.plugins.Keyboard.disableScroll(true);
             //
             //}
-
+            if (window.StatusBar) {
+                // org.apache.cordova.statusbar required
+                StatusBar.styleDefault();
+            }
 
             $ionicPlatform.registerBackButtonAction(function (event) {
                 if($state.current.name=="tab.home"){
