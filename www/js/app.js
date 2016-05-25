@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'ionic.service.core', 'wpIonic.controllers', 'wpIonic.services', 'wpIonic.filters', 'ngCordova', 'angular-cache', 'semi.directives', 'ngMessages', 'starter.services'])
 
-    .run(function ($ionicPlatform, $rootScope) {
+    .run(function ($ionicPlatform, $rootScope,$state) {
 
         var bReal = true;
         if (bReal) {
@@ -48,6 +48,15 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'wpIonic.controllers',
             //  cordova.plugins.Keyboard.disableScroll(true);
             //
             //}
+
+
+            $ionicPlatform.registerBackButtonAction(function (event) {
+                if($state.current.name=="tab.home"){
+                    navigator.app.exitApp(); //<-- remove this line to disable the exit
+                }else{
+                    navigator.app.backHistory();
+                }
+            }, 100);
 
             if (ionic.Platform.isAndroid()) {
 
@@ -170,14 +179,17 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'wpIonic.controllers',
             })
             .state('tab.promotions', {
                 url: '/promotions',
-                params: {category: 'promotion'},
+                //params: {category: 'promotion'},
+                params: {postId: 12709,pageStatus:1,title:'promotion'},
                 views: {
                     'tab-home': {
-                        templateUrl: 'templates/list-views.html',
-                        controller: 'ListViewCtrl'
+                        templateUrl: 'templates/promotion.html',
+                        controller: 'ViewsCtrl'
                     }
                 }
             })
+
+
 
             .state('tab.news', {
                 url: '/news',
@@ -242,6 +254,18 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'wpIonic.controllers',
                     }
                 }
             })
+
+            .state('tab.testpromotion', {
+                url: '/testpromotion',
+                params: {postId: 5790,pageStatus:1},
+                views: {
+                    'tab-about': {
+                        templateUrl: 'templates/promotion.html',
+                        //controller: 'ViewsCtrl'
+                    }
+                }
+            })
+
 
             .state('tab.about', {
                 url: '/about',

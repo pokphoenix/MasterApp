@@ -2,7 +2,7 @@ angular.module('wpIonic.controllers')
 
     // Login / User Management here
 
-    .controller('LoginCtrl', function ($scope, $state,$localstorage,LoginRedirect,SemiFunction,UserService,$q,$ionicLoading,Facebook,$rootScope,popupService,$http,Sha1) {
+    .controller('LoginCtrl', function ($scope, $state,$localstorage,LoginRedirect,SemiFunction,UserService,$q,$ionicLoading,Facebook,$rootScope,popupService,$http,Sha1,$cordovaStatusbar) {
 
         var statusLogin = $localstorage.get('loginStatus');
         $scope.inputType = 'password';

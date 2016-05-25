@@ -1,7 +1,7 @@
 angular.module('wpIonic.controllers')
 
 
-    .controller('ViewsCtrl', function ($scope, $stateParams, DataLoader, $ionicLoading, $rootScope, $sce, CacheFactory, $log, $cordovaSocialSharing) {
+    .controller('ViewsCtrl', function ($scope, $stateParams, DataLoader, $ionicLoading, $rootScope, $sce, CacheFactory, $log, $cordovaSocialSharing,SemiFunction) {
 
 
         console.log('PostCtrl');
@@ -18,6 +18,7 @@ angular.module('wpIonic.controllers')
         if ($stateParams.pageStatus == 1) {
             var singlePostApi = _wpurl + 'pages/' + $scope.itemID;
         }
+
 
 
         //singlePostApi = "http://masterpiececlinic.com/wp-json/wp/v2/pages/5790" ;
@@ -73,6 +74,11 @@ angular.module('wpIonic.controllers')
                     var contentHtml = response.data.content.rendered;
                 }
 
+                console.log(SemiFunction.checkNull($stateParams.title));
+
+                if (!SemiFunction.checkNull($stateParams.title)) {
+                    $scope.post.title.rendered  = $stateParams.title ;
+                }
                 // Don't strip post html
                 $scope.content = $sce.trustAsHtml(contentHtml);
                 // add post to our cache
@@ -105,6 +111,9 @@ angular.module('wpIonic.controllers')
             $scope.content = $sce.trustAsHtml(contentHtml);
         }
 
+        if (!SemiFunction.checkNull($stateParams.title)) {
+            $scope.post.title.rendered  = $stateParams.title ;
+        }
 
         $scope.share = function () {
             console.log('share : ', shareLink);
