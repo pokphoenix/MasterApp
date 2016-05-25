@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'ionic.service.core', 'wpIonic.controllers', 'wpIonic.services', 'wpIonic.filters', 'ngCordova', 'angular-cache', 'semi.directives', 'ngMessages', 'starter.services'])
 
-    .run(function ($ionicPlatform, $rootScope,$state) {
+    .run(function ($ionicPlatform, $rootScope,$state,$cordovaStatusbar) {
 
         var bReal = true;
         if (bReal) {
@@ -59,8 +59,8 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'wpIonic.controllers',
             }, 100);
 
             if (ionic.Platform.isAndroid()) {
-
-                //$cordovaStatusbar.overlaysWebView(true);
+                //$cordovaStatusbar.hide();
+                //$cordovaStatusbar.overlaysWebView(false);
                 //$cordovaStatusbar.backgroundColorByHexString("#FF0000");
 
             } else if (ionic.Platform.isIOS()) {
