@@ -1,11 +1,11 @@
-<ion-view cache-view="false" view-title="Edit Profile" >
+<ion-view cache-view="false" view-title="{{ title | uppercase}}" >
 
-	<ion-content class="has-header" scroll="false">
+	<ion-content class="has-header semi-form" scroll="false">
 
 		<form name="form.signUpForm" novalidate="" ng-submit="Edit(form.signUpForm)">
 
 			<div class="list">
-				<div class="item item-divider">
+				<div class="item item-divider item-divider-first-row">
 					Full Name
 				</div>
 				<label class="item item-input " >
@@ -21,12 +21,7 @@
 
 			<div class="row">
 				<div class="col col-40 col-offset-30">
-
-					<button class="button-clear" ng-disabled="form.signUpForm.$invalid" type="submit"  >
-						<img class="img-responsive" ng-src="img/btn_submit.png" >
-					</button>
-
-
+					<input type="image" class="img-responsive" ng-src="img/btn_submit.png" ng-disabled="form.signUpForm.$invalid" />
 				</div>
 			</div>
 		</form>

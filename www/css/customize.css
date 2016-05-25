@@ -1,5 +1,10 @@
 
 
+html{
+    font-family: "MuliRegular";
+}
+
+
 /* loading */
 .semi-loading {
     background:#111;width:5rem;height:5rem; position: fixed; top: 50%; left:50%; margin-top:-2.5rem; margin-left:-2.5rem;z-index: 999 !important; color:#EEE;font-size:2rem; display: table;text-align:center;
@@ -133,3 +138,14 @@
     margin: 0;
     padding: 0;
 }
+
+
+.item-divider-first-row {
+    padding-top:1.5rem;
+}
+
+/* overrid class */
+
+.semi-form{background:#F5F5F5;}
+.semi-form .item {color:#666666;}
+.item-divider {  color:#B3B3B3 !important; }

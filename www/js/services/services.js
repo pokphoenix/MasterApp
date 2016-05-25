@@ -111,7 +111,7 @@ angular.module('wpIonic.services', [])
                     $localstorage.set('loginStatus',true);
                     $localstorage.set('userName',response.data.message.fullName);
                     $localstorage.set('Isfacebook',data.Isfacebook);
-                    (($rootScope.redirectUrl!=$rootScope.semi.appHome) && (!angular.isUndefined($rootScope.redirectUrl)) && ($rootScope.redirectUrl !== null)  )  ? $state.go($rootScope.redirectUrl) :  $state.go('app.promotions');
+                    (($rootScope.redirectUrl!=$rootScope.semi.appHome) && (!angular.isUndefined($rootScope.redirectUrl)) && ($rootScope.redirectUrl !== null)  )  ? $state.go($rootScope.redirectUrl) :  $state.go($rootScope.semi.appHome);
                 }else{
                     popupService.alert(JSON.stringify(response.data.message));
                 }

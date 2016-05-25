@@ -1,6 +1,7 @@
 angular.module('wpIonic.controllers', [])
 
     .controller('HomeCtrl', function ($scope) {
+        $scope.title = "Masterpiece Clinic" ;
     })
 
     .controller('TabCtrl', function ($scope,$ionicActionSheet) {
@@ -121,7 +122,7 @@ angular.module('wpIonic.controllers', [])
     })
 
     .controller('BranchCtrl', function ($scope,$cordovaGeolocation,$compile,$rootScope) {
-
+        $scope.title = "Contact Us"
         //$scope.itemList = [
         //    {"name": "ทองหล่อ", "link": "#/tab/pages/4012/1"},
         //    {"name": "สาขาสยามสแควร์", "link": "#/tab/pages/8667/1"}
@@ -184,7 +185,7 @@ angular.module('wpIonic.controllers', [])
     })
 
     .controller('StampCtrl', function ($scope, $cordovaBarcodeScanner, $ionicPlatform, $localstorage, $state, $rootScope, $http, SemiFunction, popupService, DataLoader, Sha1, $ionicLoading) {
-
+        $scope.title = "Stamp" ;
         var statusLogin = $localstorage.get('loginStatus');
         $scope.StampCnt = 0 ;
         $scope.StampEmptyCnt = 5-$scope.StampCnt;

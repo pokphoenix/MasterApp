@@ -1,9 +1,9 @@
-<ion-view view-title="My Account" cache-view="false">
-    <ion-content scroll="false">
+<ion-view view-title="{{ title | uppercase}}" cache-view="false">
+    <ion-content scroll="false" class="has-header semi-form">
 
-        <div ng-show="IsLogin" >
+        <div ng-show="IsLogin"  >
             <ion-list >
-                <div class="item item-divider">
+                <div class="item item-divider item-divider-first-row" >
                     My Account
                 </div>
                 <div class="item">

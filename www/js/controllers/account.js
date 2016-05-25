@@ -167,7 +167,7 @@ angular.module('wpIonic.controllers')
 
 
     .controller('SignUpCtrl', function ($scope, $state,LoginService,$rootScope,$ionicPopup,LoginRedirect,$ionicHistory,Sha1,$ionicLoading ) {
-
+        $scope.title = "Sign Up" ;
         $scope.inputType = 'password';
         $scope.inputTypeConFirm = 'password';
         $scope.passwordCheckbox = true ;
@@ -222,7 +222,7 @@ angular.module('wpIonic.controllers')
     })
 
     .controller('MyAccountCtrl', function ($scope,$localstorage,$state,$rootScope,SemiFunction,$ionicLoading) {
-
+        $scope.title = "My Account" ;
         $rootScope.redirectUrl = 'tab.account' ;
         var statusLogin = $localstorage.get('loginStatus');
 
@@ -268,7 +268,7 @@ angular.module('wpIonic.controllers')
     })
 
     .controller('EditProfileCtrl', function ($window,$scope,$rootScope,$localstorage,LoginRedirect,SemiFunction,$ionicLoading) {
-
+        $scope.title = "Edit Profile" ;
 
         var email = $localstorage.get('userEmail');
 
@@ -295,7 +295,7 @@ angular.module('wpIonic.controllers')
     })
 
     .controller('ChangePassCtrl', function ($scope, $state,$localstorage,DataLoader,$rootScope,Sha1,$ionicLoading) {
-
+        $scope.title = "Change Password" ;
         $scope.currentInputType = 'password' ;
         $scope.inputType = 'password' ;
         $scope.inputTypeConFirm = 'password';

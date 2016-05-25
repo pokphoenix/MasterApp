@@ -2,18 +2,18 @@
 	<div class="buttons">
 		<button class="button ion-chevron-left button-clear" ng-click="back()"></button>
 	</div>
-	<h1 class="title">Sign Up</h1>
+	<h1 class="title">{{ title | uppercase}}</h1>
 </ion-header-bar>
 
 <ion-view cache-view="false" >
 
-	<ion-content class="has-header" scroll="false" >
+	<ion-content class="has-header"  scroll="false" >
 
 		<form name="form.signUpForm" novalidate="" ng-submit="signUp(form.signUpForm)">
 
-			<div class="list">
+			<div class="list " >
 
-				<label class="item item-input " ng-class="{ 'has-errors' : form.signUpForm.fullName.$invalid && form.signUpForm.fullName.$dirty, 'no-errors' : form.signUpForm.fullName.$valid }">
+				<label class="item item-input item-divider-first-row" ng-class="{ 'has-errors' : form.signUpForm.fullName.$invalid && form.signUpForm.fullName.$dirty, 'no-errors' : form.signUpForm.fullName.$valid }">
 					<i class="icon ion-person placeholder-icon"></i>
 					<input type="text" name="fullName" placeholder="Full Name" ng-model="data.fullName" ng-minlength="5" ng-maxlength="100" required>
 				</label>
@@ -80,12 +80,7 @@
 
 			<div class="row">
 				<div class="col col-40 col-offset-30">
-
-					<button class="button-clear" ng-disabled="form.signInForm.$invalid" type="submit"  >
-						<img class="img-responsive" ng-src="img/btn_signup_form.png" >
-					</button>
-
-
+					<input type="image" class="img-responsive" ng-src="img/btn_signup_form.png" ng-disabled="form.signInForm.$invalid" />
 				</div>
 			</div>
 
