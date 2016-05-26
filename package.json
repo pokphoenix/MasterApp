@@ -26,7 +26,7 @@
     "cordova-plugin-appavailability",
     "phonegap-plugin-barcodescanner",
     "cordova-plugin-x-socialsharing",
-    "cordova-plugin-geolocation"
+    "cordova-plugin-screen-orientation"
   ],
   "cordovaPlatforms": [
     "android"

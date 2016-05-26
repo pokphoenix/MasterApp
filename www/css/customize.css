@@ -4,7 +4,9 @@
 body, .ionic-body {
     font-family: "MuliRegular";
 }
-
+.overflow-scroll {
+    overflow-y: auto !important;
+}
 
 /* loading */
 .semi-loading {

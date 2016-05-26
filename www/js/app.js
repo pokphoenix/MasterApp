@@ -48,10 +48,7 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'wpIonic.controllers',
             //  cordova.plugins.Keyboard.disableScroll(true);
             //
             //}
-            if (window.StatusBar) {
-                // org.apache.cordova.statusbar required
-                StatusBar.styleDefault();
-            }
+
 
             $ionicPlatform.registerBackButtonAction(function (event) {
                 if($state.current.name=="tab.home"){
@@ -61,6 +58,8 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'wpIonic.controllers',
                 }
             }, 100);
 
+            $cordovaStatusbar.overlaysWebView(false);
+
             if (ionic.Platform.isAndroid()) {
                 //$cordovaStatusbar.hide();
                 //$cordovaStatusbar.overlaysWebView(false);
@@ -69,7 +68,15 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'wpIonic.controllers',
             } else if (ionic.Platform.isIOS()) {
                 //StatusBar.styleLightContent();
             }
-
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                //ionic.Platform.fullScreen();
+                if(window.StatusBar) {
+                    // org.apache.cordova.statusbar required
+                    StatusBar.styleDefault();
+                }
+                screen.lockOrientation('portrait');
+            }
 
         });
     })
