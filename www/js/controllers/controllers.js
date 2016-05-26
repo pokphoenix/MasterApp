@@ -122,65 +122,46 @@ angular.module('wpIonic.controllers', [])
     })
 
     .controller('BranchCtrl', function ($scope,$cordovaGeolocation,$compile,$rootScope) {
-        $scope.title = "Contact Us"
-        //$scope.itemList = [
-        //    {"name": "ทองหล่อ", "link": "#/tab/pages/4012/1"},
-        //    {"name": "สาขาสยามสแควร์", "link": "#/tab/pages/8667/1"}
-        //
-        //];
-        //$scope.titleView = "สาขา";
+        $scope.title = "Contact Us" ;
+
+        //console.log('branch');
+
+        var myLatlng = new google.maps.LatLng(13.7454302,100.5308201);
+
+        var mapOptions = {
+            center: myLatlng,
+            zoom: 17,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+        navigator.geolocation.getCurrentPosition(function(pos) {
+            map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+            var myLocation = new google.maps.Marker({
+                position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
+                map: map,
+                title: "My Location"
+            });
+        });
 
 
-        //$cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
-        //    var lat  = position.coords.latitude;
-        //    var long = position.coords.longitude;
-        //
-        //    var myLatlng = new google.maps.LatLng(lat, long);
-        //
-        //    var mapOptions = {
-        //        center: myLatlng,
-        //        zoom: 16,
-        //        mapTypeId: google.maps.MapTypeId.ROADMAP
-        //    };
-        //
-        //    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-        //
-        //    $scope.map = map;
-        //
-        //
-        //}, function(err) {
-        //
-        //    console.log(err);
-        //});
+        var marker = new google.maps.Marker({
+            map: map,
+            animation: google.maps.Animation.DROP,
+            position: myLatlng
+        });
 
-        //
+        var infoWindow = new google.maps.InfoWindow({
+            content: "Masterpiece Clinic"
+        });
 
-        //var posOptions = {
-        //    enableHighAccuracy: true,
-        //    timeout: 20000,
-        //    maximumAge: 0
-        //};
-        //$cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
-        //    var lat  = position.coords.latitude;
-        //    var long = position.coords.longitude;
-        //
-        //    var myLatlng = new google.maps.LatLng(lat, long);
-        //
-        //    var mapOptions = {
-        //        center: myLatlng,
-        //        zoom: 16,
-        //        mapTypeId: google.maps.MapTypeId.ROADMAP
-        //    };
-        //
-        //    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-        //
-        //    $scope.map = map;
-        //    $rootScope.loading = false ;
-        //
-        //}, function(err) {
-        //    console.log(err);
-        //    $rootScope.loading = false ;
-        //});
+        google.maps.event.addListener(marker, 'click', function () {
+            infoWindow.open(map, marker);
+        });
+
+
+        $scope.map = map;
 
     })
 
